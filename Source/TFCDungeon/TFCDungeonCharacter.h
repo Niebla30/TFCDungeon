@@ -1,4 +1,5 @@
 // Copyright 1998-2018 Epic Games, Inc. All Rights Reserved.
+// © 2018, Juan Montero Román & Ricardo Guzmán Velasco
 
 #pragma once
 
