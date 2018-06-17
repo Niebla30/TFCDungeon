@@ -13,6 +13,12 @@ class ATFCDungeonGameMode : public AGameModeBase
 
 public:
 	ATFCDungeonGameMode();
+	virtual void BeginPlay() override;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Characters)
+		TSubclassOf<APawn> BoyPawn;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Characters)
+		TSubclassOf<APawn> GirlPawn;
 };
 
 
