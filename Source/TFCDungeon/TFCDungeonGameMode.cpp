@@ -28,10 +28,10 @@ void ATFCDungeonGameMode::BeginPlay()
 	Super::BeginPlay();
 
 	auto player = UGameplayStatics::GetPlayerController(GetWorld(), 0);
+	player->GetPawn()->Destroy();
 	player->UnPossess();
 
 	ACharacter* character = nullptr;
-
 	switch (Cast<UTFCDungeonGameInstance>(GetWorld()->GetGameInstance())->GetOwningCharacter())
 	{
 	case ECharacter::Char_FireBoy:
