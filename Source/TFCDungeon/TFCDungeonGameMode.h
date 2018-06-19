@@ -3,11 +3,11 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "GameFramework/GameModeBase.h"
+#include "GameFramework/GameMode.h"
 #include "TFCDungeonGameMode.generated.h"
 
 UCLASS(minimalapi)
-class ATFCDungeonGameMode : public AGameModeBase
+class ATFCDungeonGameMode : public AGameMode
 {
 	GENERATED_BODY()
 
@@ -19,6 +19,9 @@ public:
 		TSubclassOf<APawn> BoyPawn;
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Characters)
 		TSubclassOf<APawn> GirlPawn;
+
+protected:
+	FVector GetPlayerStart();
 };
 
 

@@ -3,6 +3,7 @@
 #include "TFCDungeonGameMode.h"
 #include "TFCDungeonCharacter.h"
 #include "Kismet/GameplayStatics.h"
+#include "GameFramework/PlayerStart.h"
 #include "Engine/World.h"
 #include "TFCDungeonEnums.h"
 #include "TFCDungeonGameInstance.h"
@@ -27,25 +28,42 @@ void ATFCDungeonGameMode::PostLogin(APlayerController * NewPlayer)
 {
 	Super::PostLogin(NewPlayer);
 
-	auto StartingPoint = NewPlayer->GetPawn()->GetActorTransform();
-	NewPlayer->GetPawn()->Destroy();
-	NewPlayer->UnPossess();
+	if (NewPlayer->GetPawn() != nullptr) {
+		NewPlayer->GetPawn()->Destroy();
+		NewPlayer->UnPossess();
+	}
 
 	ACharacter* character = nullptr;
 	TSubclassOf<APawn> pawn;
-	switch (Cast<UTFCDungeonGameInstance>(GetWorld()->GetGameInstance())->GetOwningCharacter())
+
+	ECharacter Selected = Cast<UTFCDungeonGameInstance>(GetWorld()->GetGameInstance())->SelectedCharacter;
+	switch (NumPlayers)
 	{
-	case ECharacter::Char_FireBoy:
-		if (BoyPawn != NULL)
+	case 1:
+		if (Selected == ECharacter::Char_FireBoy)
 			pawn = BoyPawn;
-		break;
-	case ECharacter::Char_WaterGirl:
-		if (GirlPawn != NULL)
+		else if (Selected == ECharacter::Char_WaterGirl)
 			pawn = GirlPawn;
+		break;
+	case 2:
+		if (Selected == ECharacter::Char_FireBoy)
+			pawn = GirlPawn;
+		else if (Selected == ECharacter::Char_WaterGirl)
+			pawn = BoyPawn;
 		break;
 	default:
 		break;
 	}
-	character = GetWorld()->SpawnActor<ACharacter>(pawn, StartingPoint.GetLocation(), FRotator(0, 0, 0));
+	character = GetWorld()->SpawnActor<ACharacter>(pawn, GetPlayerStart(), FRotator(0, 0, 0));
 	NewPlayer->Possess(character);
+}
+
+FVector ATFCDungeonGameMode::GetPlayerStart()
+{
+	TArray<AActor*> FoundActors;
+	UGameplayStatics::GetAllActorsOfClass(GetWorld(), APlayerStart::StaticClass(), FoundActors);
+
+	APlayerStart* SpawnPoint = Cast<APlayerStart>(FoundActors[NumPlayers - 1]);
+	//ToDo: PlayerStart in order to character, not PlayerController num. 
+	return SpawnPoint->GetActorLocation();
 }
