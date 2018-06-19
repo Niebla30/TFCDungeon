@@ -54,16 +54,18 @@ void ATFCDungeonGameMode::PostLogin(APlayerController * NewPlayer)
 	default:
 		break;
 	}
-	character = GetWorld()->SpawnActor<ACharacter>(pawn, GetPlayerStart(), FRotator(0, 0, 0));
+	FTransform SpawnTransform = GetPlayerStart();
+	character = GetWorld()->SpawnActor<ACharacter>(pawn, SpawnTransform.GetLocation(), SpawnTransform.GetRotation().Rotator());
 	NewPlayer->Possess(character);
 }
 
-FVector ATFCDungeonGameMode::GetPlayerStart()
+FTransform ATFCDungeonGameMode::GetPlayerStart()
 {
 	TArray<AActor*> FoundActors;
 	UGameplayStatics::GetAllActorsOfClass(GetWorld(), APlayerStart::StaticClass(), FoundActors);
 
 	APlayerStart* SpawnPoint = Cast<APlayerStart>(FoundActors[NumPlayers - 1]);
 	//ToDo: PlayerStart in order to character, not PlayerController num. 
-	return SpawnPoint->GetActorLocation();
+	return SpawnPoint->GetActorTransform();
 }
+

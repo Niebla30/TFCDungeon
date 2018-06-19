@@ -21,7 +21,7 @@ public:
 		TSubclassOf<APawn> GirlPawn;
 
 protected:
-	FVector GetPlayerStart();
+	FTransform GetPlayerStart();
 };
 
 
