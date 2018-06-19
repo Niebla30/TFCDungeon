@@ -9,5 +9,8 @@ public class TFCDungeonTarget : TargetRules
 	{
 		Type = TargetType.Game;
 		ExtraModuleNames.Add("TFCDungeon");
-	}
+
+        //UEBuildConfiguration.bCompileSteamOSS = true;
+   
+    }
 }

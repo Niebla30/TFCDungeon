@@ -8,6 +8,16 @@ public class TFCDungeon : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "HeadMountedDisplay" });
-	}
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "HeadMountedDisplay", "OnlineSubsystem", "OnlineSubsystemUtils" });
+
+        PrivateDependencyModuleNames.Add("OnlineSubsystem");
+        PrivateDependencyModuleNames.Add("OnlineSubsystemNull");
+        if ((Target.Platform == UnrealTargetPlatform.Win32) || (Target.Platform == UnrealTargetPlatform.Win64) || (Target.Platform == UnrealTargetPlatform.Linux))
+        {
+           // if (UEBuildConfiguration.bCompileSteamOSS == true)
+            {
+                DynamicallyLoadedModuleNames.Add("OnlineSubsystemSteam");
+            }
+        }
+    }
 }
