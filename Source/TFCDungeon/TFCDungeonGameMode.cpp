@@ -12,12 +12,12 @@
 ATFCDungeonGameMode::ATFCDungeonGameMode()
 {
 	// set default pawn class to our Blueprinted character
-	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/Characters/FireBoy/FireBoy_Character"));
+	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/Characters/FireBoy/BP_FireBoy_Character"));
 	if (PlayerPawnBPClass.Class != NULL)
 	{
 		BoyPawn = PlayerPawnBPClass.Class;
 	}
-	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnGirlBPClass(TEXT("/Game/Characters/WaterGirl/WaterGirl_Character"));
+	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnGirlBPClass(TEXT("/Game/Characters/WaterGirl/BP_WaterGirl_Character"));
 	if (PlayerPawnGirlBPClass.Class != NULL)
 	{
 		GirlPawn = PlayerPawnGirlBPClass.Class;
