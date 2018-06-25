@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ATFCDungeonCharacter">
+    <Position X="1" Y="2" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAABAAABAgAAAAAAAAAiAQEAAAAAQACIIAoAAAQ=</HashCode>
+      <FileName>D:\CEDV\GIT\TFCDungeon\Source\TFCDungeon\TFCDungeonCharacter.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ATFCDungeonGameMode">
+    <Position X="3.75" Y="2" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAAAEAAIAAAAAACAA=</HashCode>
+      <FileName>D:\CEDV\GIT\TFCDungeon\Source\TFCDungeon\TFCDungeonGameMode.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ATFCDungeonGameState">
+    <Position X="6.25" Y="2" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAQACAAAgAAA=</HashCode>
+      <FileName>D:\CEDV\GIT\TFCDungeon\Source\TFCDungeon\TFCDungeonGameState.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UEndPointBehaviour">
+    <Position X="12" Y="2" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAgAAAAAAEAAAAAAAAAAAAAEAAAAABAAkCgA=</HashCode>
+      <FileName>D:\CEDV\GIT\TFCDungeon\Source\TFCDungeon\EndPointBehaviour.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UTFCDungeonGameInstance">
+    <Position X="9.25" Y="2" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAJAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\CEDV\GIT\TFCDungeon\Source\TFCDungeon\TFCDungeonGameInstance.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ACharacter" Collapsed="true">
+    <Position X="1.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>3hcEKYgvJ2cH1caNKD/Woo5iyQKmGCo7+TaCRkliYNg=</HashCode>
+      <FileName>c:\Program Files\Epic Games\UE_4.19\Engine\Source\Runtime\Engine\Classes\GameFramework\Character.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AGameMode" Collapsed="true">
+    <Position X="4" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>dQCCgIwAIQGUTIhgEBCDQCJEwgAFAxYlAJAAAwlAzgA=</HashCode>
+      <FileName>c:\Program Files\Epic Games\UE_4.19\Engine\Source\Runtime\Engine\Classes\GameFramework\GameMode.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AGameState" Collapsed="true">
+    <Position X="6.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAABAAA0AAAAAQAAAAADEAAA0AAAABIEAKIAAgAAAgQ=</HashCode>
+      <FileName>c:\Program Files\Epic Games\UE_4.19\Engine\Source\Runtime\Engine\Classes\GameFramework\GameState.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UActorComponent" Collapsed="true">
+    <Position X="12" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>Qy+2M8G+Voh89kVOslVe+zwr4Cnr4hZ0fQflkdq43mg=</HashCode>
+      <FileName>c:\Program Files\Epic Games\UE_4.19\Engine\Source\Runtime\Engine\Classes\Components\ActorComponent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="ECharacter" Collapsed="true">
+    <Position X="3.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\CEDV\GIT\TFCDungeon\Source\TFCDungeon\TFCDungeonEnums.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="EElement" Collapsed="true">
+    <Position X="3.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\CEDV\GIT\TFCDungeon\Source\TFCDungeon\TFCDungeonEnums.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="EEndPointState" Collapsed="true">
+    <Position X="3.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\CEDV\GIT\TFCDungeon\Source\TFCDungeon\TFCDungeonEnums.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
