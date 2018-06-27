@@ -1,3 +1,5 @@
+// © 2018, Juan Montero Román & Ricardo Guzmán Velasco.
+
 #pragma once
 
 #include "CoreMinimal.h"

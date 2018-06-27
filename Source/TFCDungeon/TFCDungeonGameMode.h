@@ -1,4 +1,4 @@
-// © 2018, Juan Montero Román & Ricardo Guzmán Velasco
+// © 2018, Juan Montero Román & Ricardo Guzmán Velasco.
 
 #pragma once
 
