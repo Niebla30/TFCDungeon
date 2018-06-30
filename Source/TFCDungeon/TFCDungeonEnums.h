@@ -22,7 +22,10 @@ enum class EEndPointState : uint8
 UENUM(BlueprintType)
 enum class EElement : uint8
 {
-	Element_Fire UMETA(DisplayName = "Fire"),
-	Element_Water UMETA(DisplayName = "Water"),
-	Element_Poison UMETA(DisplayName = "Poison")
+	Element_None = 1<<0,
+	Element_Fire = 1<<1				UMETA(DisplayName = "Fire"),
+	Element_Water = 1<<2			UMETA(DisplayName = "Water"),
+	Element_Plasm = (1<<1) + (1<<2) UMETA(DisplayName = "Plasm"),
+	Element_Poison = 1<<3			UMETA(DisplayName = "Poison")
 };
+ENUM_CLASS_FLAGS(EElement)
