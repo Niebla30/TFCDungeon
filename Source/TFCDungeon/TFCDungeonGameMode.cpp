@@ -40,15 +40,15 @@ void ATFCDungeonGameMode::PostLogin(APlayerController * NewPlayer)
 	switch (NumPlayers)
 	{
 	case 1:
-		if (Selected == ECharacter::Char_FireBoy)
+		if (Selected == ECharacter::FireBoy)
 			pawn = BoyPawn;
-		else if (Selected == ECharacter::Char_WaterGirl)
+		else if (Selected == ECharacter::WaterGirl)
 			pawn = GirlPawn;
 		break;
 	case 2:
-		if (Selected == ECharacter::Char_FireBoy)
+		if (Selected == ECharacter::FireBoy)
 			pawn = GirlPawn;
-		else if (Selected == ECharacter::Char_WaterGirl)
+		else if (Selected == ECharacter::WaterGirl)
 			pawn = BoyPawn;
 		break;
 	default:
