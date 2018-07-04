@@ -5,6 +5,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "TFCDungeonEnums.h"
 #include "TFCDungeonCharacter.generated.h"
 
 UCLASS(config=Game)
@@ -70,7 +71,7 @@ public:
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
 
-public:
-
+	UPROPERTY(BlueprintReadWrite, EditAnyWhere, Category = "Custom")
+		EElement Element;
 };
 
