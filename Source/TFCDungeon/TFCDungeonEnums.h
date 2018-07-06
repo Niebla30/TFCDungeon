@@ -28,9 +28,11 @@ enum class EElement : uint8
 	Poison		UMETA(DisplayName = "Poison")
 };
 
+inline bool operator==(const EElement Element, const EElement Other)
+{
 //Inline necessary in order to compile, insofar as there is no .cpp for this .h file.
-inline bool operator==(EElement &Element, EElement Other) {
-	UE_LOG(LogTemp, Warning, TEXT("ANDO."));
-	return	static_cast<int>(Other) == static_cast<int>(Element) ||
-			static_cast<int>(Other) == 0; // Plasm fits any else element.
+	return	static_cast<int>(Other) == static_cast<int>(Element)
+		// Plasm fits any else element.
+		||	static_cast<int>(Other) == 0
+		||	static_cast<int>(Element) == 0; 
 }
