@@ -36,3 +36,8 @@ inline bool operator==(const EElement Element, const EElement Other)
 		||	static_cast<int>(Other) == 0
 		||	static_cast<int>(Element) == 0; 
 }
+
+inline bool operator!=(const EElement Element, const EElement Other)
+{
+	return	!(Element == Other);
+}
