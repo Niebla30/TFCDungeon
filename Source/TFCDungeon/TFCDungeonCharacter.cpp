@@ -5,9 +5,12 @@
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/InputComponent.h"
+#include "Blueprint/UserWidget.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "UObject/ConstructorHelpers.h"
+
 
 //////////////////////////////////////////////////////////////////////////
 // ATFCDungeonCharacter
@@ -43,6 +46,16 @@ ATFCDungeonCharacter::ATFCDungeonCharacter()
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
 	FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
 
+	//WidgetBlueprint'/Game/Misc/MiniMap/WBP_MiniMap.WBP_MiniMap'
+	
+	static ConstructorHelpers::FClassFinder<UUserWidget> CH_Widget(TEXT("/Game/Misc/MiniMap/WBP_MiniMap.WBP_MiniMap_C"));
+	if (CH_Widget.Class != NULL)
+		MiniMapClassWidget = CH_Widget.Class;
+	else
+		UE_LOG(LogTemp, Error, TEXT("Couldn't find MiniMap Widget on %s."), *GetName());
+
+	MiniMapWidget = nullptr;
+
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
 }
@@ -56,6 +69,8 @@ void ATFCDungeonCharacter::SetupPlayerInputComponent(class UInputComponent* Play
 	check(PlayerInputComponent);
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
+
+	PlayerInputComponent->BindAction("ToggleMiniMap", IE_Pressed, this, &ATFCDungeonCharacter::ToggleMiniMap);
 
 	PlayerInputComponent->BindAxis("MoveForward", this, &ATFCDungeonCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &ATFCDungeonCharacter::MoveRight);
@@ -130,5 +145,28 @@ void ATFCDungeonCharacter::MoveRight(float Value)
 		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
 		// add movement in that direction
 		AddMovementInput(Direction, Value);
+	}
+}
+
+void ATFCDungeonCharacter::ToggleMiniMap()
+{
+	if (GetWorld()->GetMapName().Right(10) == "Transition")
+		return;
+		
+	GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Yellow, "Mostrando minimapa en " + GetWorld()->GetMapName());
+
+	if (MiniMapClassWidget != NULL)
+	{
+		if (MiniMapWidget == nullptr)
+		{
+			MiniMapWidget = CreateWidget<UUserWidget>(GetWorld(), MiniMapClassWidget);
+			MiniMapWidget->AddToViewport();
+		}
+		else
+		{
+			MiniMapWidget->RemoveFromParent();
+			MiniMapWidget = nullptr;
+		}
+
 	}
 }

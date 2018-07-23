@@ -8,6 +8,7 @@
 #include "TFCDungeonEnums.h"
 #include "TFCDungeonCharacter.generated.h"
 
+
 UCLASS(config=Game)
 class ATFCDungeonCharacter : public ACharacter
 {
@@ -20,6 +21,9 @@ class ATFCDungeonCharacter : public ACharacter
 	/** Follow camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* FollowCamera;
+
+	
+
 public:
 	ATFCDungeonCharacter();
 
@@ -41,6 +45,9 @@ protected:
 
 	/** Called for side to side input */
 	void MoveRight(float Value);
+
+	void ToggleMiniMap();
+
 
 	/** 
 	 * Called via input to turn at a given rate. 
@@ -73,5 +80,14 @@ public:
 
 	UPROPERTY(BlueprintReadWrite, EditAnyWhere, Category = "Custom")
 		EElement Element;
+	UPROPERTY(BlueprintReadWrite, EditAnyWhere, Category = "Custom")
+		ECharacter CharType;
+
+	UPROPERTY()
+	TSubclassOf<class UUserWidget> MiniMapClassWidget;
+
+	UPROPERTY()
+	class UUserWidget* MiniMapWidget;
+
 };
 
