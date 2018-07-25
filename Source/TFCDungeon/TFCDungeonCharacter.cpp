@@ -150,10 +150,10 @@ void ATFCDungeonCharacter::MoveRight(float Value)
 
 void ATFCDungeonCharacter::ToggleMiniMap()
 {
-	if (GetWorld()->GetMapName().Right(10) == "Transition")
+	if (GetWorld()->GetMapName().Contains("Transition"))
 		return;
 		
-	GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Yellow, "Mostrando minimapa en " + GetWorld()->GetMapName());
+	//GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Yellow, "Mostrando minimapa en " + GetWorld()->GetMapName());
 
 	if (MiniMapClassWidget != NULL)
 	{
