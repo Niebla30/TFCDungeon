@@ -1,86 +1,272 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="ATFCDungeonCharacter">
-    <Position X="1" Y="2" Width="2.25" />
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="AActivableActor">
+    <Position X="6" Y="0.5" Width="1.75" />
+    <InheritanceLine Type="AActor" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.062" Y="5.25" />
+        <Point X="5.062" Y="5.125" />
+        <Point X="6.875" Y="5.125" />
+        <Point X="6.875" Y="4.492" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAQAABAAABAgAAAAAAAAAiAQEAAAAAQACIIAoAAAQ=</HashCode>
+      <HashCode>AAAgABAIAAAAAAACIAAAAAgACIAgAAAAgAAABBAgQAA=</HashCode>
+      <FileName>D:\CEDV\GIT\TFCDungeon\Source\TFCDungeon\ActivableActor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AActivatorActor">
+    <Position X="0.5" Y="2.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAACCAAAgkAACAAAAAAAAAQAAgAAAQgSAA=</HashCode>
+      <FileName>D:\CEDV\GIT\TFCDungeon\Source\TFCDungeon\ActivatorActor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AButtonActivatorActor">
+    <Position X="3.25" Y="3.25" Width="2.5" />
+    <InheritanceLine Type="AActivatorActor" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="3" Y="2.5" />
+        <Point X="4.5" Y="2.5" />
+        <Point X="4.5" Y="3.25" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAACAA=</HashCode>
+      <FileName>D:\CEDV\GIT\TFCDungeon\Source\TFCDungeon\ButtonActivatorActor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UEndPointBehaviour">
+    <Position X="13.25" Y="5.5" Width="2" />
+    <InheritanceLine Type="UActorComponent" FixedToPoint="true">
+      <Path>
+        <Point X="15.375" Y="3.57" />
+        <Point X="15.375" Y="5.125" />
+        <Point X="14.938" Y="5.125" />
+        <Point X="14.938" Y="5.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAgAAAAAAEAAAAAAAAAAAAAEAAAAABAAkCgA=</HashCode>
+      <FileName>D:\CEDV\GIT\TFCDungeon\Source\TFCDungeon\EndPointBehaviour.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ALeverActivatorActor">
+    <Position X="4" Y="7.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\CEDV\GIT\TFCDungeon\Source\TFCDungeon\LeverActivatorActor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="APushActivatorActor">
+    <Position X="0.5" Y="0.5" Width="1.75" />
+    <InheritanceLine Type="AActivatorActor" ManuallyRouted="true">
+      <Path>
+        <Point X="1.75" Y="2.25" />
+        <Point X="1.75" Y="1.903" />
+        <Point X="1.375" Y="1.903" />
+        <Point X="1.375" Y="1.733" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\CEDV\GIT\TFCDungeon\Source\TFCDungeon\PushActivatorActor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ASwitchActivatorActor">
+    <Position X="3.5" Y="0.5" Width="2" />
+    <InheritanceLine Type="AActivatorActor" ManuallyRouted="true" FixedFromPoint="true">
+      <Path>
+        <Point X="2.062" Y="2.25" />
+        <Point X="2.062" Y="1.957" />
+        <Point X="4.5" Y="1.957" />
+        <Point X="4.5" Y="1.733" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>D:\CEDV\GIT\TFCDungeon\Source\TFCDungeon\SwitchActivatorActor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ATFCDungeonCharacter">
+    <Position X="15.75" Y="4.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAARQQABAgAAAIgAAAAiAQEAAAAAQACIIAoAAAQ=</HashCode>
       <FileName>D:\CEDV\GIT\TFCDungeon\Source\TFCDungeon\TFCDungeonCharacter.h</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="UTFCDungeonGameInstance">
+    <Position X="10.75" Y="6.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAEAAAAACAAAAAAAAAAAAAJAAAQhAAAIAEAAA=</HashCode>
+      <FileName>D:\CEDV\GIT\TFCDungeon\Source\TFCDungeon\TFCDungeonGameInstance.h</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="ATFCDungeonGameMode">
-    <Position X="3.75" Y="2" Width="2" />
+    <Position X="8.5" Y="6.5" Width="2" />
+    <InheritanceLine Type="AGameMode" FixedToPoint="true">
+      <Path>
+        <Point X="7.75" Y="8.096" />
+        <Point X="8.125" Y="8.096" />
+        <Point X="8.125" Y="7.437" />
+        <Point X="8.5" Y="7.437" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAAAAAAEAAIAAAAAACAA=</HashCode>
       <FileName>D:\CEDV\GIT\TFCDungeon\Source\TFCDungeon\TFCDungeonGameMode.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ATFCDungeonGameState">
-    <Position X="6.25" Y="2" Width="2.5" />
+    <Position X="8.5" Y="4" Width="2.5" />
+    <InheritanceLine Type="AGameState" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="7" Y="6.5" />
+        <Point X="7" Y="6.067" />
+        <Point X="8.211" Y="6.067" />
+        <Point X="8.211" Y="5.188" />
+        <Point X="8.5" Y="5.188" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAQACAAAgAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAABAAAAAQAAAAAAAAAAAAAAQACAAAgAAA=</HashCode>
       <FileName>D:\CEDV\GIT\TFCDungeon\Source\TFCDungeon\TFCDungeonGameState.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="UEndPointBehaviour">
-    <Position X="12" Y="2" Width="2" />
+  <Class Name="UTFCDungeonSaveGame">
+    <Position X="8" Y="1.75" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAIAAAAAgAAAAAAEAAAAAAAAAAAAAEAAAAABAAkCgA=</HashCode>
-      <FileName>D:\CEDV\GIT\TFCDungeon\Source\TFCDungeon\EndPointBehaviour.h</FileName>
+      <HashCode>AAAAAAAAACAAAAABAAAAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>D:\CEDV\GIT\TFCDungeon\Source\TFCDungeon\TFCDungeonSaveGame.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="UTFCDungeonGameInstance">
-    <Position X="9.25" Y="2" Width="2.25" />
+  <Class Name="UTFCFunctionLibrary">
+    <Position X="10.75" Y="1.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAQAAAAAAAAAAAAAAAAAAAJAAAAAAAAAAAAAA=</HashCode>
-      <FileName>D:\CEDV\GIT\TFCDungeon\Source\TFCDungeon\TFCDungeonGameInstance.h</FileName>
+      <HashCode>AAAQgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>D:\CEDV\GIT\TFCDungeon\Source\TFCDungeon\TFCFunctionLibrary.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ACharacter" Collapsed="true">
-    <Position X="1.25" Y="0.75" Width="1.5" />
+  <Class Name="AActor" Collapsed="true" HideInheritanceLine="true">
+    <Position X="4.25" Y="5.25" Width="1.5" />
+    <InheritanceLine Type="UObject" IsHidden="true" />
     <TypeIdentifier>
-      <HashCode>3hcEKYgvJ2cH1caNKD/Woo5iyQKmGCo7+TaCRkliYNg=</HashCode>
-      <FileName>c:\Program Files\Epic Games\UE_4.19\Engine\Source\Runtime\Engine\Classes\GameFramework\Character.h</FileName>
+      <HashCode>z/3d//z//91/9/+f9/b/7q/7b//f//71+v/7+r//9+8=</HashCode>
+      <FileName>c:\Program Files\Epic Games\UE_4.19\Engine\Source\Runtime\Engine\Classes\GameFramework\Actor.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="AGameMode" Collapsed="true">
-    <Position X="4" Y="0.75" Width="1.5" />
+  <Class Name="USaveGame" Collapsed="true">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <InheritanceLine Type="UObject" FixedToPoint="true">
+      <Path>
+        <Point X="11" Y="0.812" />
+        <Point X="9.5" Y="0.812" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>dQCCgIwAIQGUTIhgEBCDQCJEwgAFAxYlAJAAAwlAzgA=</HashCode>
-      <FileName>c:\Program Files\Epic Games\UE_4.19\Engine\Source\Runtime\Engine\Classes\GameFramework\GameMode.h</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>c:\Program Files\Epic Games\UE_4.19\Engine\Source\Runtime\Engine\Classes\GameFramework\SaveGame.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UBlueprintFunctionLibrary" Collapsed="true" HideInheritanceLine="true">
+    <Position X="11.75" Y="4" Width="2" />
+    <InheritanceLine Type="UObject" IsHidden="true" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>c:\Program Files\Epic Games\UE_4.19\Engine\Source\Runtime\Engine\Classes\Kismet\BlueprintFunctionLibrary.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AGameState" Collapsed="true">
-    <Position X="6.75" Y="0.75" Width="1.5" />
+    <Position X="6.25" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IAABAAA0AAAAAQAAAAADEAAA0AAAABIEAKIAAgAAAgQ=</HashCode>
       <FileName>c:\Program Files\Epic Games\UE_4.19\Engine\Source\Runtime\Engine\Classes\GameFramework\GameState.h</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="AGameMode" Collapsed="true">
+    <Position X="6.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>dQCCgIwAIQGUTIhgEBCDQCJEwgAFAxYlAJAAAwlAzgA=</HashCode>
+      <FileName>c:\Program Files\Epic Games\UE_4.19\Engine\Source\Runtime\Engine\Classes\GameFramework\GameMode.h</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="UActorComponent" Collapsed="true">
-    <Position X="12" Y="0.75" Width="2" />
+    <Position X="14.5" Y="2.75" Width="1.75" />
+    <InheritanceLine Type="UObject" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="12.5" Y="0.812" />
+        <Point X="14.014" Y="0.812" />
+        <Point X="14.014" Y="3" />
+        <Point X="14.5" Y="3" />
+      </Path>
+    </InheritanceLine>
+    <InheritanceLine Type="IInterface_AssetUserData" FixedToPoint="true">
+      <Path>
+        <Point X="15.25" Y="1.312" />
+        <Point X="15.25" Y="2.375" />
+        <Point X="15.375" Y="2.375" />
+        <Point X="15.375" Y="2.75" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>Qy+2M8G+Voh89kVOslVe+zwr4Cnr4hZ0fQflkdq43mg=</HashCode>
       <FileName>c:\Program Files\Epic Games\UE_4.19\Engine\Source\Runtime\Engine\Classes\Components\ActorComponent.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Enum Name="ECharacter" Collapsed="true">
-    <Position X="3.75" Y="5.75" Width="1.5" />
+  <Class Name="UObject" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAIAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>w22kclCsJOZgfs/6atnUwFGOaSrAqKBoWKotd8IEiIk=</HashCode>
+      <FileName>c:\Program Files\Epic Games\UE_4.19\Engine\Source\Runtime\CoreUObject\Public\UObject\Object.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IInterface_AssetUserData" Collapsed="true">
+    <Position X="14.25" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAgAAAAAAAAAAgAAAAIAAIAAAAAAAABAAAAA=</HashCode>
+      <FileName>c:\Program Files\Epic Games\UE_4.19\Engine\Source\Runtime\Engine\Classes\Interfaces\Interface_AssetUserData.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ACharacter" Collapsed="true">
+    <Position X="13.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>3hcEKYgvJ2cH1caNKD/Woo5iyQKmGCo7+TaCRkliYNg=</HashCode>
+      <FileName>c:\Program Files\Epic Games\UE_4.19\Engine\Source\Runtime\Engine\Classes\GameFramework\Character.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UGameInstance" Collapsed="true" HideInheritanceLine="true">
+    <Position X="11.25" Y="5" Width="1.5" />
+    <InheritanceLine Type="UObject" IsHidden="true" />
+    <TypeIdentifier>
+      <HashCode>IAYhSFwBAEJQFgDsdAJyiUIIwAgAoDAB0QAnAAGFAA4=</HashCode>
+      <FileName>c:\Program Files\Epic Games\UE_4.19\Engine\Source\Runtime\Engine\Classes\Engine\GameInstance.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="FTFCDungeonLevelInfo">
+    <Position X="0.5" Y="7" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAUAAIAAAABCAAAAABAAAIAAAAABAAAAAAA=</HashCode>
+      <FileName>D:\CEDV\GIT\TFCDungeon\Source\TFCDungeon\TFCDungeonLevelInfo.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="ECharacter">
+    <Position X="3.75" Y="9.25" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>D:\CEDV\GIT\TFCDungeon\Source\TFCDungeon\TFCDungeonEnums.h</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="EElement" Collapsed="true">
-    <Position X="3.75" Y="4.25" Width="1.5" />
+  <Enum Name="EEndPointState">
+    <Position X="7.25" Y="9.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>D:\CEDV\GIT\TFCDungeon\Source\TFCDungeon\TFCDungeonEnums.h</FileName>
     </TypeIdentifier>
   </Enum>
-  <Enum Name="EEndPointState" Collapsed="true">
-    <Position X="3.75" Y="5" Width="1.5" />
+  <Enum Name="EElement">
+    <Position X="5.5" Y="9.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>D:\CEDV\GIT\TFCDungeon\Source\TFCDungeon\TFCDungeonEnums.h</FileName>
     </TypeIdentifier>
   </Enum>
