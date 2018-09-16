@@ -82,6 +82,8 @@ public:
 		EElement Element;
 	UPROPERTY(BlueprintReadWrite, EditAnyWhere, Category = "Custom")
 		ECharacter CharType;
+	UPROPERTY(BlueprintReadWrite, EditAnyWhere, Category = "Custom")
+		bool PlayerDying;
 
 	UPROPERTY()
 	TSubclassOf<class UUserWidget> MiniMapClassWidget;
