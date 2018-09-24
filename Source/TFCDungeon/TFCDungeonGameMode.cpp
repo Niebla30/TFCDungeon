@@ -6,6 +6,7 @@
 #include "GameFramework/PlayerStart.h"
 #include "Engine/World.h"
 #include "TFCDungeonEnums.h"
+#include "TFCDungeonGameState.h"
 #include "TFCDungeonGameInstance.h"
 #include "UObject/ConstructorHelpers.h"
 
@@ -37,19 +38,33 @@ void ATFCDungeonGameMode::PostLogin(APlayerController * NewPlayer)
 	TSubclassOf<APawn> pawn;
 
 	ECharacter Selected = Cast<UTFCDungeonGameInstance>(GetWorld()->GetGameInstance())->SelectedCharacter;
+	
 	switch (NumPlayers)
 	{
 	case 1:
 		if (Selected == ECharacter::FireBoy)
+		{
 			pawn = BoyPawn;
+			Cast<ATFCDungeonGameState>(GetWorld()->GetGameState())->Player1_type = ECharacter::FireBoy;
+			Cast<ATFCDungeonGameState>(GetWorld()->GetGameState())->Player2_type = ECharacter::WaterGirl;
+
+		}
 		else if (Selected == ECharacter::WaterGirl)
+		{
 			pawn = GirlPawn;
+			Cast<ATFCDungeonGameState>(GetWorld()->GetGameState())->Player2_type = ECharacter::FireBoy;
+			Cast<ATFCDungeonGameState>(GetWorld()->GetGameState())->Player1_type = ECharacter::WaterGirl;
+		}
 		break;
 	case 2:
 		if (Selected == ECharacter::FireBoy)
+		{
 			pawn = GirlPawn;
+		}
 		else if (Selected == ECharacter::WaterGirl)
+		{
 			pawn = BoyPawn;
+		}
 		break;
 	default:
 		break;
