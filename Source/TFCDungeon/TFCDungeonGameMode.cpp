@@ -79,21 +79,48 @@ void ATFCDungeonGameMode::PostLogin(APlayerController * NewPlayer)
 void ATFCDungeonGameMode::PostSeamlessTravel()
 {
 	Super::PostSeamlessTravel();
-
-	GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Yellow, "************* PostSeamlessTravel del GameMode");
 }
 
 void ATFCDungeonGameMode::HandleSeamlessTravelPlayer(AController*& C)
 {
 	Super::HandleSeamlessTravelPlayer(C);
-
-
-	GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Yellow, "************* HandleSeamlessTravelPlayer del GameMode");
 }
 
 void ATFCDungeonGameMode::InitSeamlessTravelPlayer(AController* NewController)
 {
 	Super::InitSeamlessTravelPlayer(NewController);
+
+	
+	ECharacter p1 = Cast<ATFCDungeonGameState>(GetWorld()->GetGameState())->Player1_type;
+	ECharacter p2 = Cast<ATFCDungeonGameState>(GetWorld()->GetGameState())->Player2_type;
+	
+	bool ImHost = Cast<UTFCDungeonGameInstance>(GetWorld()->GetGameInstance())->bSoyHost;
+
+	FString pp;
+
+	if (p1 == ECharacter::FireBoy)
+		pp = "P1 = FireBoy, ";
+	else if (p1 == ECharacter::WaterGirl)
+		pp = "P1 = WaterGirl, ";
+
+	if (p2 == ECharacter::FireBoy)
+		pp += "P2 = FireBoy, ";
+	else if (p2 == ECharacter::WaterGirl)
+		pp += "P2 = WaterGirl, ";
+
+	if (ImHost)
+		pp += "HOST, ";
+	else
+		pp += "NO_HOST, ";
+
+	ECharacter Selected = Cast<UTFCDungeonGameInstance>(GetWorld()->GetGameInstance())->SelectedCharacter;
+
+	if (Selected == ECharacter::FireBoy)
+		pp += "Selected = FireBoy, ";
+	else if (Selected == ECharacter::WaterGirl)
+		pp += "Selected = WaterGirl, ";
+
+	GEngine->AddOnScreenDebugMessage(-1, 300.0f, FColor::Yellow, pp);
 
 	APlayerController* NewPlayer = Cast<APlayerController>(NewController);
 
@@ -105,7 +132,7 @@ void ATFCDungeonGameMode::InitSeamlessTravelPlayer(AController* NewController)
 	ACharacter* character = nullptr;
 	TSubclassOf<APawn> pawn;
 
-	ECharacter Selected = Cast<UTFCDungeonGameInstance>(GetWorld()->GetGameInstance())->SelectedCharacter;
+	
 
 	
 	if (Selected == ECharacter::FireBoy)
@@ -125,8 +152,6 @@ void ATFCDungeonGameMode::InitSeamlessTravelPlayer(AController* NewController)
 	FTransform SpawnTransform = GetPlayerStart();
 	character = GetWorld()->SpawnActor<ACharacter>(pawn, SpawnTransform.GetLocation(), SpawnTransform.GetRotation().Rotator());
 	NewPlayer->Possess(character);
-
-	GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Yellow, "************* InitSeamlessTravelPlayer del GameMode");
 }
 
 
