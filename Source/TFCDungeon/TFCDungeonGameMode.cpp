@@ -4,6 +4,7 @@
 #include "TFCDungeonCharacter.h"
 #include "Kismet/GameplayStatics.h"
 #include "GameFramework/PlayerStart.h"
+#include "GameFramework/PlayerController.h"
 #include "Engine/World.h"
 #include "TFCDungeonEnums.h"
 #include "TFCDungeonGameState.h"
@@ -23,6 +24,7 @@ ATFCDungeonGameMode::ATFCDungeonGameMode()
 	{
 		GirlPawn = PlayerPawnGirlBPClass.Class;
 	}
+
 }
 
 void ATFCDungeonGameMode::PostLogin(APlayerController * NewPlayer)
@@ -73,6 +75,60 @@ void ATFCDungeonGameMode::PostLogin(APlayerController * NewPlayer)
 	character = GetWorld()->SpawnActor<ACharacter>(pawn, SpawnTransform.GetLocation(), SpawnTransform.GetRotation().Rotator());
 	NewPlayer->Possess(character);
 }
+
+void ATFCDungeonGameMode::PostSeamlessTravel()
+{
+	Super::PostSeamlessTravel();
+
+	GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Yellow, "************* PostSeamlessTravel del GameMode");
+}
+
+void ATFCDungeonGameMode::HandleSeamlessTravelPlayer(AController*& C)
+{
+	Super::HandleSeamlessTravelPlayer(C);
+
+
+	GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Yellow, "************* HandleSeamlessTravelPlayer del GameMode");
+}
+
+void ATFCDungeonGameMode::InitSeamlessTravelPlayer(AController* NewController)
+{
+	Super::InitSeamlessTravelPlayer(NewController);
+
+	APlayerController* NewPlayer = Cast<APlayerController>(NewController);
+
+	if (NewPlayer->GetPawn() != nullptr) {
+		NewPlayer->GetPawn()->Destroy();
+		NewPlayer->UnPossess();
+	}
+
+	ACharacter* character = nullptr;
+	TSubclassOf<APawn> pawn;
+
+	ECharacter Selected = Cast<UTFCDungeonGameInstance>(GetWorld()->GetGameInstance())->SelectedCharacter;
+
+	
+	if (Selected == ECharacter::FireBoy)
+	{
+		pawn = BoyPawn;
+		Cast<ATFCDungeonGameState>(GetWorld()->GetGameState())->Player1_type = ECharacter::FireBoy;
+		Cast<ATFCDungeonGameState>(GetWorld()->GetGameState())->Player2_type = ECharacter::WaterGirl;
+
+	}
+	else if (Selected == ECharacter::WaterGirl)
+	{
+		pawn = GirlPawn;
+		Cast<ATFCDungeonGameState>(GetWorld()->GetGameState())->Player2_type = ECharacter::FireBoy;
+		Cast<ATFCDungeonGameState>(GetWorld()->GetGameState())->Player1_type = ECharacter::WaterGirl;
+	}
+
+	FTransform SpawnTransform = GetPlayerStart();
+	character = GetWorld()->SpawnActor<ACharacter>(pawn, SpawnTransform.GetLocation(), SpawnTransform.GetRotation().Rotator());
+	NewPlayer->Possess(character);
+
+	GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Yellow, "************* InitSeamlessTravelPlayer del GameMode");
+}
+
 
 FTransform ATFCDungeonGameMode::GetPlayerStart()
 {

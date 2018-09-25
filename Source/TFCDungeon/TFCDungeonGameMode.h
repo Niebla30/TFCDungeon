@@ -14,6 +14,9 @@ class ATFCDungeonGameMode : public AGameMode
 public:
 	ATFCDungeonGameMode();
 	virtual void PostLogin(APlayerController* NewPlayer) override;
+	virtual void PostSeamlessTravel() override;
+	virtual void HandleSeamlessTravelPlayer(AController*& C) override;
+	virtual void InitSeamlessTravelPlayer(AController* NewController) override;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Characters)
 		TSubclassOf<APawn> BoyPawn;
