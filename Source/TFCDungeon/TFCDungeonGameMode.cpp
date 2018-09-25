@@ -90,39 +90,14 @@ void ATFCDungeonGameMode::InitSeamlessTravelPlayer(AController* NewController)
 {
 	Super::InitSeamlessTravelPlayer(NewController);
 
-	
-	ECharacter p1 = Cast<ATFCDungeonGameState>(GetWorld()->GetGameState())->Player1_type;
-	ECharacter p2 = Cast<ATFCDungeonGameState>(GetWorld()->GetGameState())->Player2_type;
-	
-	bool ImHost = Cast<UTFCDungeonGameInstance>(GetWorld()->GetGameInstance())->bSoyHost;
-
-	FString pp;
-
-	if (p1 == ECharacter::FireBoy)
-		pp = "P1 = FireBoy, ";
-	else if (p1 == ECharacter::WaterGirl)
-		pp = "P1 = WaterGirl, ";
-
-	if (p2 == ECharacter::FireBoy)
-		pp += "P2 = FireBoy, ";
-	else if (p2 == ECharacter::WaterGirl)
-		pp += "P2 = WaterGirl, ";
-
-	if (ImHost)
-		pp += "HOST, ";
-	else
-		pp += "NO_HOST, ";
-
-	ECharacter Selected = Cast<UTFCDungeonGameInstance>(GetWorld()->GetGameInstance())->SelectedCharacter;
-
-	if (Selected == ECharacter::FireBoy)
-		pp += "Selected = FireBoy, ";
-	else if (Selected == ECharacter::WaterGirl)
-		pp += "Selected = WaterGirl, ";
-
-	GEngine->AddOnScreenDebugMessage(-1, 300.0f, FColor::Yellow, pp);
+	static int nPlayers = 1;
 
 	APlayerController* NewPlayer = Cast<APlayerController>(NewController);
+
+	if (NewPlayer->GetPawn() != nullptr) {
+		NewPlayer->GetPawn()->Destroy();
+		NewPlayer->UnPossess();
+	}
 
 	if (NewPlayer->GetPawn() != nullptr) {
 		NewPlayer->GetPawn()->Destroy();
@@ -132,26 +107,46 @@ void ATFCDungeonGameMode::InitSeamlessTravelPlayer(AController* NewController)
 	ACharacter* character = nullptr;
 	TSubclassOf<APawn> pawn;
 
-	
+	ECharacter Selected = Cast<UTFCDungeonGameInstance>(GetWorld()->GetGameInstance())->SelectedCharacter;
 
-	
-	if (Selected == ECharacter::FireBoy)
+	switch (nPlayers)
 	{
-		pawn = BoyPawn;
-		Cast<ATFCDungeonGameState>(GetWorld()->GetGameState())->Player1_type = ECharacter::FireBoy;
-		Cast<ATFCDungeonGameState>(GetWorld()->GetGameState())->Player2_type = ECharacter::WaterGirl;
+	case 1:
+		if (Selected == ECharacter::FireBoy)
+		{
+			pawn = BoyPawn;
+			Cast<ATFCDungeonGameState>(GetWorld()->GetGameState())->Player1_type = ECharacter::FireBoy;
+			Cast<ATFCDungeonGameState>(GetWorld()->GetGameState())->Player2_type = ECharacter::WaterGirl;
 
+		}
+		else if (Selected == ECharacter::WaterGirl)
+		{
+			pawn = GirlPawn;
+			Cast<ATFCDungeonGameState>(GetWorld()->GetGameState())->Player2_type = ECharacter::FireBoy;
+			Cast<ATFCDungeonGameState>(GetWorld()->GetGameState())->Player1_type = ECharacter::WaterGirl;
+		}
+		break;
+	case 2:
+		if (Selected == ECharacter::FireBoy)
+		{
+			pawn = GirlPawn;
+		}
+		else if (Selected == ECharacter::WaterGirl)
+		{
+			pawn = BoyPawn;
+		}
+		break;
+	default:
+		break;
 	}
-	else if (Selected == ECharacter::WaterGirl)
-	{
-		pawn = GirlPawn;
-		Cast<ATFCDungeonGameState>(GetWorld()->GetGameState())->Player2_type = ECharacter::FireBoy;
-		Cast<ATFCDungeonGameState>(GetWorld()->GetGameState())->Player1_type = ECharacter::WaterGirl;
-	}
-
 	FTransform SpawnTransform = GetPlayerStart();
 	character = GetWorld()->SpawnActor<ACharacter>(pawn, SpawnTransform.GetLocation(), SpawnTransform.GetRotation().Rotator());
 	NewPlayer->Possess(character);
+
+	nPlayers++;
+
+	if (nPlayers == 3)
+		nPlayers = 1;
 }
 
 
